@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
+<meta charset="UTF-8">
+<title>登録</title>
+</head>
+<body>
+	<div class="uk-container uk-text-center">
+		<div class="">
+			<div th:if="${validationError}" th:each="error : ${validationError}">
+			  <label class="text-danger" th:text="${error}"></label>
+			</div>
+		</div>
+		<h1>新規登録</h1>
+		<form th:action="@{/work/create}" th:object="${workRequest}" th:method="post">
+			<div class="form-group">
+				<label>名前</label>
+				<input class="form-control" type="text" th:field="*{name}">
+			</div>
+			<div class="form-group">
+				<label>ステータス</label>
+				<input name="done" class="form-control" type="radio" th:field="*{state}" value="未完了">未完了
+				<input name="done" class="form-control" type="radio" th:field="*{state}" value="完了">完了
+			</div>
+			<div class="form-group">
+				<label>期日</label>
+				<input class="form-control" type="date" th:field="*{deadline}">
+			</div>
+			<div class="form-group">
+				<label>優先度</label>
+				<select th:field="*{priority}">
+					<option value="1">1(高い)</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5(低い)</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>詳細</label>
+				<textarea class="form-control" rows="3" cols="80" th:field="*{detail}">
+				</textarea>
+			</div>
+			<a href="/work/list" class="uk-button uk-button-secondary">キャンセル</a>
+			<input type="submit" value="登録" class="uk-button uk-button-primary">
+		</form>
+	</div>
+</body>
+</html>

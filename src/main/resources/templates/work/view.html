@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
+<meta charset="UTF-8">
+<title>詳細</title>
+</head>
+<body>
+	<div class="uk-container">
+		<h1>情報詳細</h1>
+		<div class="uk-background-muted" th:object="${workData}">
+			<div class="uk-text-center uk-width-mediam">
+				<div>名前</div>
+				<div>
+					<p th:text="*{name}"></p>
+				</div>
+			</div>
+			<div class="uk-text-center uk-width-mediam">
+				<div>ステータス</div> 
+				<div>
+					<p th:text="*{state}"></p>
+					</div>
+				</div>
+			<div class="uk-text-center uk-width-mediam">
+				<div>期日</div>
+				<div>
+					<p th:text="*{deadline}"></p>
+				</div>
+			</div>
+			<div class="uk-text-center uk-width-mediam">
+				<div>優先度</div>
+				<div>
+					<p th:text="*{priority}"></p>
+				</div>
+			</div>			
+			<div class="uk-text-center uk-width-mediam">
+				<div>詳細</div>
+				<div class="uk-text-center">
+					<textarea class="uk-text-center uk-textarea uk-background-muted uk-disabled" th:text="*{detail}" rows="3" cols="80"  ></textarea>
+				</div>
+			</div>
+			<div class="uk-text-center uk-width-mediam">
+				<a th:href="@{/work/{id}/edit(id=*{id})}" class="uk-button uk-button-primary">編集</a>
+				<a th:href="@{/work/{id}/delete(id=*{id})}" class="uk-button uk-button-secondary">削除</a>
+				<a href="/work/list" class="uk-button uk-button-secondary">一覧に戻る</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

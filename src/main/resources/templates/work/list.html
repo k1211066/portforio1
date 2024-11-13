@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
+<meta charset="UTF-8">
+<title>検索</title>
+</head>
+<body>
+	<div class="uk-container">
+			<div id="remindThrough" class="uk-margin-remove"></div>
+			<div id="remindToday" class="uk-margin-remove"></div>
+		<h1>一覧</h1>
+		<div class="uk-background-muted" uk-grid>
+			<div class="uk-width-1-2 uk-text-left uk-padding uk-padding-remove-bottom">
+				<form class="uk-search uk-search-default uk-padding-small uk-padding-remove-bottom"  th:action="@{/work/search}" method="get">
+					<input type="text" name="name">名前<br>
+					<input name="state" type="radio" value="" checked>指定なし
+					<input name="state" type="radio" value="未完了">未完了
+					<input name="state" type="radio" value="完了">完了<br>
+					<select name="priority">
+						<option value="">指定なし</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<span>優先度</span><br>
+					<button class="uk-button uk-button-secondary uk-button-small uk-margin-small" type="submit">検索</button>
+				</form>
+			</div>
+			<div class="uk-width-1-2 uk-text-right uk-padding-small">
+				<a th:href="@{/work/add}" class="uk-button uk-button-primary uk-margin">新規登録</a>
+			</div>
+		</div>
+		<div id="task" class="uk-width-expand">
+			<table class="uk-table uk-table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>名前</th>
+						<th class="sort" data-sort="state">ステータス</th>
+						<th class="sort" data-sort="deadline">期日</th>
+						<th class="sort" data-sort="priority">優先度</th>
+						<th class="sort" data-sort="updateDate">更新日時</th>
+						<th>登録日時</th>
+					</tr>
+				</thead>
+				<tbody class="list">
+					<tr th:each="work : ${worklist}" th:object="${work}">
+						<td th:text="*{id}"></td>
+						<td th:text="*{name}"></td>
+						<td class="state" th:text="*{state}"></td>
+						<td class="deadline" th:text="*{deadline}"></td>
+						<td class="priority" th:text="*{priority}"></td>
+						<td class="updateDate" th:text="${#dates.format(work.updateDate, 'yyyy/MM/dd')}"></td>
+						<td th:text="${#dates.format(work.createDate, 'yyyy/MM/dd')}"></td>
+						<td><a th:href="@{/work/{id}(id=*{id})}" class="uk-button uk-button-secondary">詳細</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+	<script th:inline="javascript">
+		const worklist = /*[[${worklist}]]*/"model";
+		const date = new Date();
+		let day = date.getDate();
+		let month = date.getMonth()+1;
+		let year = date.getFullYear();
+		const elementThrough = document.getElementById('remindThrough')
+		const elementToday = document.getElementById('remindToday')
+		console.log("q");
+		console.log(worklist);
+		if(day < 10){
+			day = "0" + day;
+		}
+		if(month < 10){
+			month = "0" + month;
+		}
+		dateCons = year + "-" + month + "-" + day;
+	
+		for(var i = 0 ; i < worklist.length ; i++){
+			if(worklist[i].state == "未完了"){
+				if(dateCons > worklist[i].deadline){
+					elementThrough.classList.add('uk-alert');
+					elementThrough.classList.add('uk-alert-warning');
+					elementThrough.innerHTML = "＜期日が過ぎたタスクがあります＞";
+					console.log(worklist[i])
+					break;
+				}
+			}
+		}
+		for(var i = 0 ; i < worklist.length ; i++){
+			if(worklist[i].state == "未完了"){
+				if(dateCons == worklist[i].deadline){
+					elementToday.classList.add('uk-alert');
+					elementToday.classList.add('uk-alert-warning');
+					elementToday.innerHTML = "＜期日が今日のタスクがあります＞";	
+					console.log(worklist[i])
+					break;
+				}
+			}
+		}
+		var options = {
+		  valueNames: ['state','deadline','priority','updateDate']
+		};
+		var taskList = new List('task', options);
+	</script>
+	<style>
+		.sort.desc:after {
+		  content:"▼";
+		}
+		.sort.asc:after {
+		  content:"▲";
+		}
+	</style>
+</body>
+</html>
