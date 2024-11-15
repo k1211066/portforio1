@@ -34,7 +34,7 @@ public class WorkController {
 	   * @param 画面表示モデル
 	   * @return リスト画面
 	   */
-	  @GetMapping("/work/list")
+	  @GetMapping("/list")
 	  public String displayList(Model model) {
 		  List<Work> worklist = workService.searchAll();
 		  model.addAttribute("worklist", worklist);
