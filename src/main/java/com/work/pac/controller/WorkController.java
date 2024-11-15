@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.work.pac.dto.WorkRequest;
-import com.work.pac.dto.WorkUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -104,8 +103,8 @@ public class WorkController {
 		  return "work/edit";
 	  }
 	  
-	  @PostMapping("/work/update")
-	  public String update(@Validated @ModelAttribute WorkUpdateRequest workUpdateRequest, BindingResult result, Model model) {
+//	  @PostMapping("/work/update")
+//	  public String update(@Validated @ModelAttribute WorkUpdateRequest workUpdateRequest, BindingResult result, Model model) {
 //
 //		  if (result.hasErrors()) {
 //			  List<String> errorList = new ArrayList<String>();
@@ -118,8 +117,8 @@ public class WorkController {
 //		  }
 
 //		  workService.update(workUpdateRequest);
-		  return String.format("redirect:/work/%d",workUpdateRequest.getId());
+//		  return String.format("redirect:/work/%d",workUpdateRequest.getId());
 		  
-	  }
+//	  }
 
 }
