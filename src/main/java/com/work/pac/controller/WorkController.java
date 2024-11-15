@@ -36,8 +36,8 @@ public class WorkController {
 	   */
 	  @GetMapping("/")
 	  public String displayList(Model model) {
-		  List<Work> worklist = workService.searchAll();
-		  model.addAttribute("worklist", worklist);
+//		  List<Work> worklist = workService.searchAll();
+//		  model.addAttribute("worklist", worklist);
 		  return "work/list";
 	  }
 
