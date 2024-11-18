@@ -51,8 +51,8 @@ public class WorkService {
 	    work.setDeadline(workRequest.getDeadline());
 	    work.setPriority(workRequest.getPriority());
 	    work.setDetail(workRequest.getDetail());
-	    work.setCreateDate(now);
 	    work.setUpdateDate(now);
+	    work.setCreateDate(now);
 	    workRepository.save(work);
 
 	}
