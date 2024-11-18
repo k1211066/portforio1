@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "workTask")
+@Table(name = "work_task")
 public class Work implements Serializable{
 
 	/**
