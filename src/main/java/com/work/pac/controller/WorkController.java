@@ -36,11 +36,11 @@ public class WorkController {
 	   * @param 画面表示モデル
 	   * @return リスト画面
 	   */
-	@GetMapping("/list")
+	@GetMapping("/")
 	  public String displayList(Model model) {
 		  List<Work> worklist = workService.searchAll();
 		  model.addAttribute("worklist", worklist);
-		  return "list";
+		  return "work/list";
 	  }
 
 	/*
@@ -52,13 +52,13 @@ public class WorkController {
 	  public String search(@RequestParam String name, String state, String priority, Model model) {
 		  List<Work> searchResult = workService.search(name, state, priority);
 		  model.addAttribute("searchResult", searchResult);
-		  return "search";
+		  return "work/search";
 	  }
 
 	  @GetMapping("/add")
 	  public String displayadd(Model model) {
 		  model.addAttribute("workRequest", new WorkRequest());
-		  return "add";
+		  return "work/add";
 	  }
 
 	  @PostMapping("/work/create")
@@ -70,10 +70,10 @@ public class WorkController {
 		    errorList.add(error.getDefaultMessage());
 		  }
 		  model.addAttribute("validationError", errorList);
-		  return "add";
+		  return "work/add";
 		}
 		workService.create(workRequest);
-		return "redirect:/list";
+		return "redirect:/work/list";
 	  }
 
 	  /*
