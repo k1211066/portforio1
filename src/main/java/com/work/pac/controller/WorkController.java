@@ -40,7 +40,7 @@ public class WorkController {
 	  public String displayList(Model model) {
 		  List<Work> worklist = workService.searchAll();
 		  model.addAttribute("worklist", worklist);
-		  return "work/list";
+		  return "list";
 	  }
 
 	/*
@@ -48,17 +48,17 @@ public class WorkController {
 	   * @param 検索用キーワード＆モデル
 	   * @return 検索結果画面
 	   */
-	  @GetMapping("/work/search")
+	  @GetMapping("/search")
 	  public String search(@RequestParam String name, String state, String priority, Model model) {
 		  List<Work> searchResult = workService.search(name, state, priority);
 		  model.addAttribute("searchResult", searchResult);
-		  return "work/search";
+		  return "search";
 	  }
 
-	  @GetMapping("/work/add")
+	  @GetMapping("/add")
 	  public String displayadd(Model model) {
 		  model.addAttribute("workRequest", new WorkRequest());
-		  return "work/add";
+		  return "add";
 	  }
 
 	  @PostMapping("/work/create")
@@ -70,7 +70,7 @@ public class WorkController {
 		    errorList.add(error.getDefaultMessage());
 		  }
 		  model.addAttribute("validationError", errorList);
-		  return "work/add";
+		  return "add";
 		}
 		workService.create(workRequest);
 		return "redirect:/list";
