@@ -58,7 +58,7 @@ public class WorkController {
 	  @GetMapping("/add")
 	  public String displayadd(Model model) {
 		  model.addAttribute("workRequest", new WorkRequest());
-		  return "/add";
+		  return "work/add";
 	  }
 
 	  @PostMapping("work/create")
