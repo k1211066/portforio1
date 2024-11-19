@@ -81,11 +81,11 @@ public class WorkController {
 	   * @return 詳細画面
 	   * 
 	   */
-	  @GetMapping("/{id}")
+	  @GetMapping("/work/{id}")
 	  public String displayView(@PathVariable Long id, Model model) {
 		  Work work = workService.findById(id);
 		  model.addAttribute("workData", work);
-		  return "/view";
+		  return "work/view";
 	  }
 
 	  /*
