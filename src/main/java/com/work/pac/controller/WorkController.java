@@ -55,7 +55,7 @@ public class WorkController {
 		  return "work/search";
 	  }
 
-	  @GetMapping("/add")
+	  @GetMapping("work/add")
 	  public String displayadd(Model model) {
 		  model.addAttribute("workRequest", new WorkRequest());
 		  return "work/add";
