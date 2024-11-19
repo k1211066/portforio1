@@ -6,7 +6,7 @@
 <!-- UIkit JS -->
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.13/dist/js/uikit.min.js"></script>
 <meta charset="UTF-8">
-<title>検索</title>
+<title>リスト</title>
 </head>
 <body>
 	<div class="uk-container">
@@ -73,8 +73,6 @@
 		let year = date.getFullYear();
 		const elementThrough = document.getElementById('remindThrough')
 		const elementToday = document.getElementById('remindToday')
-		console.log("q");
-		console.log(worklist);
 		if(day < 10){
 			day = "0" + day;
 		}
@@ -89,7 +87,6 @@
 					elementThrough.classList.add('uk-alert');
 					elementThrough.classList.add('uk-alert-warning');
 					elementThrough.innerHTML = "＜期日が過ぎたタスクがあります＞";
-					console.log(worklist[i])
 					break;
 				}
 			}
@@ -100,7 +97,6 @@
 					elementToday.classList.add('uk-alert');
 					elementToday.classList.add('uk-alert-warning');
 					elementToday.innerHTML = "＜期日が今日のタスクがあります＞";	
-					console.log(worklist[i])
 					break;
 				}
 			}
