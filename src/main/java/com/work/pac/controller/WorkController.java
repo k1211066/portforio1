@@ -55,13 +55,13 @@ public class WorkController {
 		  return "work/search";
 	  }
 
-	  @GetMapping("/work/add")
+	  @GetMapping("work/add")
 	  public String displayadd(Model model) {
 		  model.addAttribute("workRequest", new WorkRequest());
 		  return "/work/add";
 	  }
 
-	  @PostMapping("/work/create")
+	  @PostMapping("work/create")
 	  public String create(@Validated @ModelAttribute WorkRequest workRequest, BindingResult result, Model model) {
 		  
 		if (result.hasErrors()) {
