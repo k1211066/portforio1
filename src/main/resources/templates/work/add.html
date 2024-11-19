@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		<h1>新規登録</h1>
-		<form th:action="@{work/create}" th:object="${workRequest}" th:method="post">
+		<form th:action="@{/work/create}" th:object="${workRequest}" th:method="post">
 			<div class="form-group">
 				<label>名前</label>
 				<input class="form-control" type="text" th:field="*{name}">
