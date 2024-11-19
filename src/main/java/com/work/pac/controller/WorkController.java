@@ -61,7 +61,7 @@ public class WorkController {
 		  return "work/add";
 	  }
 
-	  @PostMapping("/work/create")
+	  @PostMapping("/create")
 	  public String create(@Validated @ModelAttribute WorkRequest workRequest, BindingResult result, Model model) {
 		  
 		if (result.hasErrors()) {
@@ -70,10 +70,10 @@ public class WorkController {
 		    errorList.add(error.getDefaultMessage());
 		  }
 		  model.addAttribute("validationError", errorList);
-		  return "work/add";
+		  return "/add";
 		}
 		workService.create(workRequest);
-		return "redirect:/work/list";
+		return "redirect:/list";
 	  }
 
 	  /*
@@ -81,11 +81,11 @@ public class WorkController {
 	   * @return 詳細画面
 	   * 
 	   */
-	  @GetMapping("/work/{id}")
+	  @GetMapping("/{id}")
 	  public String displayView(@PathVariable Long id, Model model) {
 		  Work work = workService.findById(id);
 		  model.addAttribute("workData", work);
-		  return "work/view";
+		  return "/view";
 	  }
 
 	  /*
