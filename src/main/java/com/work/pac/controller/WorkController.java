@@ -70,10 +70,10 @@ public class WorkController {
 		    errorList.add(error.getDefaultMessage());
 		  }
 		  model.addAttribute("validationError", errorList);
-		  return "/add";
+		  return "/work/add";
 		}
 		workService.create(workRequest);
-		return "/list";
+		return "redirect:/work/list";
 	  }
 
 	  /*
