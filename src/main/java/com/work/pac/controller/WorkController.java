@@ -61,7 +61,7 @@ public class WorkController {
 		  return "work/add";
 	  }
 
-	  @PostMapping("/create")
+	  @PostMapping("work/create")
 	  public String create(@Validated @ModelAttribute WorkRequest workRequest, BindingResult result, Model model) {
 		  
 		if (result.hasErrors()) {
