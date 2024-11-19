@@ -58,7 +58,7 @@ public class WorkController {
 	  @GetMapping("/work/add")
 	  public String displayadd(Model model) {
 		  model.addAttribute("workRequest", new WorkRequest());
-		  return "/work/add";
+		  return "work/add";
 	  }
 
 	  @PostMapping("/work/create")
@@ -70,7 +70,7 @@ public class WorkController {
 		    errorList.add(error.getDefaultMessage());
 		  }
 		  model.addAttribute("validationError", errorList);
-		  return "/work/add";
+		  return "work/add";
 		}
 		workService.create(workRequest);
 		return "redirect:/";
