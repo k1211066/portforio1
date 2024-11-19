@@ -40,7 +40,7 @@ public class WorkController {
 	  public String displayList(Model model) {
 		  List<Work> worklist = workService.searchAll();
 		  model.addAttribute("worklist", worklist);
-		  return "list";
+		  return "work/list";
 	  }
 
 	/*
