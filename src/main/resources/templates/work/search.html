@@ -13,7 +13,7 @@
 		<h1>一覧</h1>
 		<div class="uk-background-muted" uk-grid>
 			<div class="uk-width-1-2 uk-text-left uk-padding-small uk-padding-remove-bottom">
-				<form class="uk-search uk-search-default uk-padding-small uk-padding-remove-bottom"  th:action="@{/work/search}" method="get">
+				<form class="uk-search uk-search-default uk-padding-small uk-padding-remove-bottom"  th:action="@{/search}" method="get">
 					<input type="text" name="name">名前<br>
 					<input name="state" type="radio" value="" checked>指定なし
 					<input name="state" type="radio" value="未完了">未完了
@@ -31,7 +31,7 @@
 				</form>
 			</div>
 			<div class="uk-width-1-2 uk-text-right uk-padding-small">
-				<a th:href="@{/work/add}" class="uk-button uk-button-primary uk-margin">新規登録</a>
+				<a th:href="@{/add}" class="uk-button uk-button-primary uk-margin">新規登録</a>
 			</div>
 		</div>
 		<div id="task" class="uk-width-expand">
