@@ -73,7 +73,7 @@ public class WorkController {
 		  return "/work/add";
 		}
 		workService.create(workRequest);
-		return "redirect:/work/list";
+		return "redirect:/list";
 	  }
 
 	  /*
