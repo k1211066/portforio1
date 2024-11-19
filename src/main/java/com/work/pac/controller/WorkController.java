@@ -95,7 +95,7 @@ public class WorkController {
 	  @GetMapping("/work/{id}/delete")
 	  public String delete(@PathVariable Long id, Model model) {
 		  workService.delete(id);
-		  return "redirect:/work/list";
+		  return "redirect:/";
 	  }
 
 	  @GetMapping("/work/{id}/edit")
