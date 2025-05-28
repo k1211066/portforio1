@@ -54,7 +54,7 @@
 						<td th:text="*{id}"></td>
 						<td th:text="*{name}"></td>
 						<td class="state" th:text="*{state}"></td>
-						<td class="deadline" th:text="*${#dates.format(work.deadline, 'yyyy/MM/dd')}"></td>
+						<td class="deadline" th:text="${#dates.format(work.deadline, 'yyyy/MM/dd')}"></td>
 						<td class="priority" th:text="*{priority}"></td>
 						<td class="updateDate" th:text="${#dates.format(work.updateDate, 'yyyy/MM/dd')}"></td>
 						<td th:text="${#dates.format(work.createDate, 'yyyy/MM/dd')}"></td>
