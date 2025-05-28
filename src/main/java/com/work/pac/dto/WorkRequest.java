@@ -31,6 +31,7 @@ public class WorkRequest implements Serializable {
 	 */
 	@NotEmpty(message = "優先度を入力してください")
 	private String priority;
+	
 	/**
 	 * 詳細
 	 */

@@ -14,7 +14,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class WorkUpdateRequest extends WorkRequest implements Serializable {
-
   /**
    * ユーザーID
    */

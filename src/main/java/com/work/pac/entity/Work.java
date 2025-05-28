@@ -40,7 +40,7 @@ public class Work implements Serializable{
 	@Column(name = "deadline")
 	private String deadline;
 	/**
-	 * 優先度(1~5)
+	 * 優先度(1～5)
 	 */
 	@Column(name = "priority")
 	private String priority;

@@ -54,7 +54,6 @@ public class WorkService {
 	    work.setUpdateDate(now);
 	    work.setCreateDate(now);
 	    workRepository.save(work);
-
 	}
 
 	/*

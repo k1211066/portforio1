@@ -43,7 +43,7 @@ public class WorkController {
 		  return "work/list";
 	  }
 
-	/*
+	  /*
 	   * 検索結果画面を表示
 	   * @param 検索用キーワード＆モデル
 	   * @return 検索結果画面
