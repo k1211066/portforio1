@@ -1,6 +1,7 @@
 package com.work.pac.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -24,7 +25,7 @@ public class WorkRequest implements Serializable {
 	 * 期日
 	 */
 	@NotEmpty(message = "期日を入力してください")
-	private String deadline;
+	private Date deadline;
 	
 	/*
 	 * 優先度 (NotEmptyは使わないと思うが念のため)
