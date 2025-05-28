@@ -31,11 +31,11 @@ public class WorkController {
 	@Autowired
 	private WorkService workService;
 
-	  /**
-	   * リスト画面を表示
-	   * @param 画面表示モデル
-	   * @return リスト画面
-	   */
+	 /*
+	  * リスト画面を表示
+	  * @param 画面表示モデル
+	  * @return リスト画面
+	  */
 	@GetMapping("/")
 	  public String displayList(Model model) {
 		  List<Work> worklist = workService.searchAll();
@@ -55,12 +55,22 @@ public class WorkController {
 		  return "work/search";
 	  }
 
+	  /*
+	   * 登録画面を表示
+	   * @param 画面表示モデル
+	   * @return 詳細画面
+	   */
 	  @GetMapping("/work/add")
 	  public String displayadd(Model model) {
 		  model.addAttribute("workRequest", new WorkRequest());
 		  return "work/add";
 	  }
 
+	  /*
+	   * 登録
+	   * @return エラー時：登録画面 成功時：リスト画面リダイレクト
+	   * 
+	   */
 	  @PostMapping("/work/create")
 	  public String create(@Validated @ModelAttribute WorkRequest workRequest, BindingResult result, Model model) {
 		  
@@ -98,6 +108,11 @@ public class WorkController {
 		  return "redirect:/";
 	  }
 
+	  /*
+	   * 編集画面表示
+	   * @return 編集画面
+	   * 
+	   */
 	  @GetMapping("/work/{id}/edit")
 	  public String displayEdit(@PathVariable Long id, Model model) {
 		  Work work = workService.findById(id);
@@ -112,6 +127,11 @@ public class WorkController {
 		  return "work/edit";
 	  }
 	  
+	  /*
+	   * 編集
+	   * @return エラー時：編集画面 成功時：詳細画面
+	   * 
+	   */
 	  @PostMapping("/work/update")
 	  public String update(@Validated @ModelAttribute WorkUpdateRequest workUpdateRequest, BindingResult result, Model model) {
 
