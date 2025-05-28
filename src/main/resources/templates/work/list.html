@@ -71,12 +71,12 @@
 		
 		for(var i = 0 ; i < worklist.length ; i++){
 			if(worklist[i].state == "未完了"){
-				if(today > worklist[i].deadline){
+				if(today.compareTo(worklist[i].deadline) > 0){
 					elementThrough.classList.add('uk-alert');
 					elementThrough.classList.add('uk-alert-warning');
 					elementThrough.innerHTML = "＜期日が過ぎたタスクがあります＞";
 					break;
-				}else if(today == worklist[i].deadline){
+				}else if(today.compareTo(worklist[i].deadline) == 0){
 					elementToday.classList.add('uk-alert');
 					elementToday.classList.add('uk-alert-warning');
 					elementToday.innerHTML = "＜期日が今日のタスクがあります＞";	
