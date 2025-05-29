@@ -38,7 +38,7 @@ public class Work implements Serializable{
 	 * 期日
 	 */
 	@Column(name = "deadline")
-	private Date deadline;
+	private String deadline;
 	/**
 	 * 優先度(1～5)
 	 */
