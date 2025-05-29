@@ -67,7 +67,9 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
 	<script th:inline="javascript">
 		const worklist = /*[[${worklist}]]*/"model";
-		const today = new Date(Date.now());
+		const today = new Date().toLocaleDateString("ja-JP", {year: "numeric",month: "2-digit",
+		   day: "2-digit"}).replaceAll('/', '-');
+		
 		
 		for(var i = 0 ; i < worklist.length ; i++){
 			if(worklist[i].state == "未完了"){
