@@ -24,7 +24,6 @@ public class WorkRequest implements Serializable {
 	/**
 	 * 期日
 	 */
-	@NotEmpty(message = "期日を入力してください")
 	private Date deadline;
 	
 	/*
