@@ -80,7 +80,7 @@
 			month = "0" + month;
 		}
 
-				dateCons = year + "-" + month + "-" + day;
+		dateCons = year + "-" + month + "-" + day;
 
 		for(var i = 0 ; i < worklist.length ; i++){
 			if(worklist[i].state == "未完了"){
@@ -92,9 +92,9 @@
 				}
 			}
 		}
-		for(var i = 0 ; i < worklist.length ; i++){
-			if(worklist[i].state == "未完了"){
-				if(dateCons == worklist[i].deadline){
+		for(var j = 0 ; j < worklist.length ; j++){
+			if(worklist[j].state == "未完了"){
+				if(dateCons == worklist[j].deadline){
 					elementToday.classList.add('uk-alert');
 					elementToday.classList.add('uk-alert-warning');
 					elementToday.innerHTML = "＜期日が今日のタスクがあります＞";	
