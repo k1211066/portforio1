@@ -46,7 +46,7 @@
 						<th class="sort" data-sort="deadline">期日</th>
 						<th class="sort" data-sort="priority">優先度</th>
 						<th class="sort" data-sort="updateDate">更新日時</th>
-						<th>登録日時</th>
+						<th class="sort" data-sort="registerDate">登録日時</th>
 					</tr>
 				</thead>
 				<tbody class="list">
@@ -104,7 +104,7 @@
 		}
 
 		var options = {
-		  valueNames: ['state','deadline','priority','updateDate']
+		  valueNames: ['state','deadline','priority','updateDate','registerDate']
 		};
 		var taskList = new List('task', options);
 	</script>
